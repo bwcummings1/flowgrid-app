@@ -1,0 +1,7 @@
+{
+    "explorer.compactFolders": false,
+    "workbench.editor.openSideBySideDirection": "down",
+    "explorer.expandSingleFolderWorkspaces": true,
+    "explorer.fileNesting.enabled": true,
+    "explorer.sortOrder": "default"
+}
