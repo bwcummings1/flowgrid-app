@@ -2,6 +2,19 @@
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
+// Define the plugin function
+function addVariablesForColors({ addBase, theme }: any) {
+  const colors = require('tailwindcss/colors');
+  const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default;
+
+  let allColors = flattenColorPalette(theme('colors'));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({ ':root': newVars });
+}
+
 // Full configuration for TailwindCSS
 const config: Config = {
   darkMode: 'class', // This enables class-based dark mode support
@@ -19,11 +32,18 @@ const config: Config = {
         '2xl': '1400px',
       },
     },
+    plugins: [
+      require('tailwindcss-animate'), // Your existing plugin
+      addVariablesForColors, // Add your new plugin here
+    ],
     extend: {
       fontFamily: {
         sans: ['DM Sans', ...defaultTheme.fontFamily.sans], // Integrating the default theme font family with 'DM Sans'
       },
       colors: {
+        'flow-blue': '#327EFF', // Custom blue
+        'flow-red': '#FF6446', // Custom red
+        'flow-yellow': '#FFDE2D', // Custom yellow
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
