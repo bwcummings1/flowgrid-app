@@ -11,6 +11,7 @@ import Image from 'next/image'
 
 export default function Home() {
   //WIP: remove fault IMAge for home page
+  
   return (
     <main className="flex items-center justify-center flex-col">
       <Navbar />
@@ -65,7 +66,7 @@ export default function Home() {
                 up {"you'll"} never leave us after this!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />3 Free automations
+                    <CheckIcon />3 Free Automations
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
@@ -112,7 +113,7 @@ export default function Home() {
                 up {"you'll"} never leave us after this!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />3 Free automations
+                    <CheckIcon />3 Free Automations
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
@@ -159,7 +160,7 @@ export default function Home() {
                 up {"you'll"} never leave us after this!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />3 Free automations
+                    <CheckIcon />3 Free Automations
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
@@ -177,7 +178,7 @@ export default function Home() {
                   as="button"
                   className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
                 >
-                  Try now →
+                  Try Now →
                 </CardItem>
                 <CardItem
                   translateZ={20}
