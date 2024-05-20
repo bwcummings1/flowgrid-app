@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
     data.append('grant_type', 'authorization_code')
     data.append(
       'redirect_uri',
-      'https://localhost:3000/api/auth/callback/discord'
+      'https://localhost:3000/api/auth_callback/discord'
     )
     data.append('code', code.toString())
 

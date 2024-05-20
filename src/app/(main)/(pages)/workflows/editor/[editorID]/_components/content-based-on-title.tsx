@@ -99,6 +99,13 @@ const ContentBasedOnTitle = ({
           </CardHeader>
         )}
         <div className="flex flex-col gap-3 px-6 py-3 pb-20">
+          <p>{'Message'}</p>
+          <Input
+            type="text"
+            value={nodeConnectionType.content}
+            onChange={(event) => onContentChange (nodeConnection, title, event)}
+          />
+        {/* <div className="flex flex-col gap-3 px-6 py-3 pb-20">
           <p>{title === 'Notion' ? 'Values to be stored' : 'Message'}</p>
 
           <Input
@@ -122,7 +129,7 @@ const ContentBasedOnTitle = ({
                 </div>
               </CardContent>
             </Card>
-          )}
+          )} */}
           {title === 'Google Drive' && <GoogleDriveFiles />}
           <ActionButton
             currentService={title}

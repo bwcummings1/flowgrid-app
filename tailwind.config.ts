@@ -1,29 +1,14 @@
-// Import necessary types and defaultTheme from TailwindCSS
-import type { Config } from 'tailwindcss';
-import defaultTheme from 'tailwindcss/defaultTheme';
+import type { Config } from 'tailwindcss'
 
-// Define the plugin function
-function addVariablesForColors({ addBase, theme }: any) {
-  const colors = require('tailwindcss/colors');
-  const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default;
-
-  let allColors = flattenColorPalette(theme('colors'));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
-
-  addBase({ ':root': newVars });
-}
-
-// Full configuration for TailwindCSS
-const config: Config = {
-  darkMode: 'class', // This enables class-based dark mode support
+const config = {
+  darkMode: ['class'],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
+  prefix: '',
   theme: {
     container: {
       center: true,
@@ -32,18 +17,8 @@ const config: Config = {
         '2xl': '1400px',
       },
     },
-    plugins: [
-      require('tailwindcss-animate'), // Your existing plugin
-      addVariablesForColors, // Add your new plugin here
-    ],
     extend: {
-      fontFamily: {
-        sans: ['DM Sans', ...defaultTheme.fontFamily.sans], // Integrating the default theme font family with 'DM Sans'
-      },
       colors: {
-        'flow-blue': '#327EFF', // Custom blue
-        'flow-red': '#FF6446', // Custom red
-        'flow-yellow': '#FFDE2D', // Custom yellow
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -142,7 +117,8 @@ const config: Config = {
         },
       },
       animation: {
-        scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+        scroll:
+          'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
         spotlight: 'spotlight 2s ease .75s 1 forwards',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
@@ -155,6 +131,16 @@ const config: Config = {
     },
   },
   plugins: [require('tailwindcss-animate')],
-};
+} satisfies Config
+
+// function addVariablesForColors({ addBase, theme }: any) {
+//   let allColors = flattenColorPalette(theme('colors'))
+//   let newVars = Object.fromEntries(
+//     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+//   )
+//   addBase({
+//     ':root': newVars,
+//   })
+// }
 
 export default config

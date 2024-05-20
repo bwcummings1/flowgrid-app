@@ -13,6 +13,7 @@ import clsx from 'clsx'
 import { Separator } from '@/components/ui/separator'
 import { Database, GitBranch, LucideMousePointerClick } from 'lucide-react'
 import { ModeToggle } from '../global/mode-toggle'
+import Image, { ImageProps } from 'next/image'
 
 type Props = {}
 
@@ -20,13 +21,20 @@ const MenuOptions = (props: Props) => {
   const pathName = usePathname()
 
   return (
-    <nav className=" dark:bg-black h-screen overflow-scroll  justify-between flex items-center flex-col  gap-10 py-6 px-2">
+    <nav className="dark:bg-black h-screen overflow-scroll  justify-between flex items-center flex-col  gap-10 py-6 px-5">
       <div className="flex items-center justify-center flex-col gap-8">
         <Link
           className="flex font-bold flex-row "
           href="/"
         >
-          Flowgrid.
+         <Image 
+        src="/flowgridLogo.png" 
+        alt="flowgrid logo" 
+        width={50} 
+        height={50} 
+        className="shadow-sm"
+        {...(ImageProps as any)}  
+        />
         </Link>
         <TooltipProvider>
           {menuOptions.map((menuItem) => (

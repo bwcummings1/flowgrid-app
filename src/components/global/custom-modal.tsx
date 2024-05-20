@@ -54,5 +54,3 @@ import {
   }
   
   export default CustomModal
-
-export default CustomModal

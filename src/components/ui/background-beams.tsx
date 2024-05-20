@@ -79,9 +79,9 @@ export const BackgroundBeams = React.memo(
             strokeWidth="0.5"
           ></path>
 
-          {paths.map((path, index) => (
+{paths.map((path, index) => (
             <motion.path
-              key={`path-` + index}
+              key={`path-${index}`}
               d={path}
               stroke={`url(#linearGradient-${index})`}
               strokeOpacity="0.4"
@@ -93,12 +93,7 @@ export const BackgroundBeams = React.memo(
               <motion.linearGradient
                 id={`linearGradient-${index}`}
                 key={`gradient-${index}`}
-                initial={{
-                  x1: "0%",
-                  x2: "0%",
-                  y1: "0%",
-                  y2: "0%",
-                }}
+                initial={{ x1: "0%", x2: "0%", y1: "0%", y2: "0%" }}
                 animate={{
                   x1: ["0%", "100%"],
                   x2: ["0%", "95%"],
@@ -112,10 +107,11 @@ export const BackgroundBeams = React.memo(
                   delay: Math.random() * 10,
                 }}
               >
-                <stop stopColor="#18CCFC" stopOpacity="0"></stop>
-                <stop stopColor="#18CCFC"></stop>
-                <stop offset="32.5%" stopColor="#6344F5"></stop>
-                <stop offset="100%" stopColor="#AE48FF" stopOpacity="0"></stop>
+                <stop offset="0%" stopColor="#327EFF" stopOpacity="0"></stop>
+                <stop offset="20%" stopColor="#327EFF"></stop>
+                <stop offset="50%" stopColor="#FF6446"></stop>
+                <stop offset="80%" stopColor="#FFDE2D"></stop>
+                <stop offset="100%" stopColor="#FFDE2D" stopOpacity="0"></stop>
               </motion.linearGradient>
             ))}
 
@@ -125,7 +121,7 @@ export const BackgroundBeams = React.memo(
               cy="0"
               r="1"
               gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(352 34) rotate(90) scale(555 1560.62)"
+              gradientTransform="translate(348 158) rotate(90) scale(555 1560.62)"
             >
               <stop offset="0.0666667" stopColor="#327EFF"></stop>
               <stop offset="0.243243" stopColor="#FF6446"></stop>
